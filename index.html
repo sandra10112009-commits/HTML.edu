@@ -1,7 +1,1697 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tecnologías Web</title>
+
+<style>
+
+/* ===== CONFIGURACIÓN GENERAL ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0a0a0f;
+    color: #f1f1f1;
+    line-height: 1.6;
+}
+
+
+/* ===== PORTADA ===== */
+
+.portada {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(circle at 20% 30%, #183c59, transparent 35%),
+        radial-gradient(circle at 80% 70%, #3b1c54, transparent 35%),
+        #0a0a0f;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.codigo-fondo {
+    position: absolute;
+
+    font-family: monospace;
+
+    font-size: 18px;
+
+    color: #00e5ff;
+
+    opacity: 0.12;
+
+    line-height: 2;
+
+    transform: rotate(-10deg);
+
+    width: 120%;
+
+    user-select: none;
+}
+
+.portada-contenido {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 900px;
+}
+
+.simbolo-html {
+    width: 150px;
+    height: 150px;
+
+    margin: auto auto 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #e44d26;
+
+    clip-path: polygon(
+        50% 0,
+        93% 15%,
+        85% 82%,
+        50% 100%,
+        15% 82%,
+        7% 15%
+    );
+
+    font-size: 65px;
+
+    font-weight: bold;
+
+    box-shadow: 0 0 30px rgba(228,77,38,0.5);
+}
+
+.portada h1 {
+    font-size: 62px;
+
+    margin-bottom: 15px;
+
+    color: white;
+}
+
+.portada h1 span {
+    color: #00e5ff;
+}
+
+.portada h2 {
+    font-size: 26px;
+
+    color: #b8c9d8;
+
+    margin-bottom: 20px;
+}
+
+.portada p {
+    max-width: 750px;
+
+    margin: auto;
+
+    color: #d0d8df;
+
+    font-size: 18px;
+}
+
+.boton {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 14px 30px;
+
+    color: #00e5ff;
+
+    border: 2px solid #00e5ff;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+    transition: 0.3s;
+}
+
+.boton:hover {
+    background: #00e5ff;
+
+    color: #08090d;
+
+    box-shadow: 0 0 25px #00e5ff;
+}
+
+
+/* ===== MENÚ ===== */
+
+nav {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    background: #101018;
+
+    border-bottom: 1px solid #303044;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    padding: 12px;
+}
+
+nav a {
+    color: #c6ccd4;
+
+    text-decoration: none;
+
+    padding: 9px 13px;
+
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #202034;
+
+    color: #00e5ff;
+}
+
+
+/* ===== TÍTULOS ===== */
+
+.titulo {
+    text-align: center;
+
+    font-size: 38px;
+
+    margin-bottom: 45px;
+
+    color: #00e5ff;
+}
+
+section {
+    padding: 75px 8%;
+}
+
+
+/* ===== HTML ===== */
+
+.html-seccion {
+    background: #0e0e16;
+}
+
+.html-contenido {
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+
+    align-items: center;
+}
+
+.texto h3 {
+    font-size: 28px;
+
+    color: #ff7043;
+
+    margin-bottom: 15px;
+}
+
+.texto p {
+    color: #c8d0d8;
+
+    font-size: 18px;
+}
+
+.editor {
+    background: #15151f;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    border: 1px solid #34344b;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.editor-barra {
+    background: #20202d;
+
+    padding: 12px 18px;
+
+    color: #7f8b98;
+
+    font-family: monospace;
+}
+
+.editor-codigo {
+    padding: 25px;
+
+    font-family: monospace;
+
+    color: #d8e0e8;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+.tag {
+    color: #ff7043;
+}
+
+.atributo {
+    color: #00e5ff;
+}
+
+.valor {
+    color: #a8e063;
+}
+
+
+/* ===== ESTRUCTURA HTML ===== */
+
+.estructura {
+    background: #090910;
+}
+
+.estructura-contenido {
+    max-width: 900px;
+
+    margin: auto;
+
+    background: #12121c;
+
+    padding: 30px;
+
+    border: 1px solid #303049;
+
+    border-radius: 10px;
+
+    font-family: monospace;
+
+    font-size: 17px;
+}
+
+.linea {
+    margin: 8px 0;
+}
+
+.rojo {
+    color: #ff7043;
+}
+
+.azul {
+    color: #00e5ff;
+}
+
+.verde {
+    color: #a8e063;
+}
+
+.morado {
+    color: #c792ea;
+}
+
+
+/* ===== CSS ===== */
+
+.css-seccion {
+    background:
+        linear-gradient(
+            135deg,
+            #11111d,
+            #171127
+        );
+}
+
+.tecnologia {
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.card {
+    background: #11111b;
+
+    border: 1px solid #34344d;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+
+    border-color: #00e5ff;
+}
+
+.icono {
+    font-size: 50px;
+
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #00e5ff;
+
+    margin-bottom: 12px;
+
+    font-size: 23px;
+}
+
+.card p {
+    color: #c3cbd4;
+}
+
+
+/* ===== JAVASCRIPT ===== */
+
+.javascript {
+    background: #0e0e16;
+}
+
+.js-contenido {
+    max-width: 950px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+}
+
+.js-card {
+    padding: 30px;
+
+    background: #15151e;
+
+    border-radius: 12px;
+
+    border-left: 4px solid #f7df1e;
+}
+
+.js-card h3 {
+    color: #f7df1e;
+
+    margin-bottom: 15px;
+
+    font-size: 25px;
+}
+
+.js-card p {
+    color: #c8d0d8;
+}
+
+
+/* ===== TECNOLOGÍAS ===== */
+
+.tecnologias-web {
+    background: #090910;
+}
+
+.tecnologias-grid {
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.tech {
+    text-align: center;
+
+    padding: 25px 15px;
+
+    background: #13131e;
+
+    border-radius: 10px;
+
+    border-bottom: 3px solid #00e5ff;
+}
+
+.tech-icono {
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+.tech h3 {
+    color: white;
+
+    margin-bottom: 8px;
+}
+
+.tech p {
+    color: #9faab5;
+
+    font-size: 14px;
+}
+
+
+/* ===== ETIQUETAS ===== */
+
+.etiquetas {
+    background: #101019;
+}
+
+.etiquetas-contenido {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 15px;
+}
+
+.etiqueta {
+    padding: 18px 25px;
+
+    background: #171722;
+
+    border: 1px solid #38384f;
+
+    border-radius: 8px;
+
+    font-family: monospace;
+
+    transition: 0.3s;
+}
+
+.etiqueta:hover {
+    border-color: #ff7043;
+
+    color: #ff7043;
+
+    transform: scale(1.05);
+}
+
+.etiqueta strong {
+    color: #00e5ff;
+}
+
+
+/* ===== DISEÑO ADAPTABLE ===== */
+
+.responsive {
+    background: #090910;
+}
+
+.responsive-contenido {
+    max-width: 900px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+}
+
+.dispositivo {
+    background: #171722;
+
+    border: 2px solid #36364c;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #00e5ff;
+
+    font-size: 30px;
+}
+
+.pc {
+    width: 280px;
+
+    height: 170px;
+
+    border-radius: 10px;
+}
+
+.tablet {
+    width: 150px;
+
+    height: 200px;
+
+    border-radius: 15px;
+}
+
+.celular {
+    width: 90px;
+
+    height: 170px;
+
+    border-radius: 15px;
+}
+
+
+/* ===== SEGURIDAD ===== */
+
+.seguridad {
+    background: #101019;
+}
+
+.seguridad-contenido {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.seguridad-card {
+    padding: 28px;
+
+    background: #131d22;
+
+    border-radius: 10px;
+
+    border-top: 3px solid #00e58a;
+}
+
+.seguridad-card h3 {
+    color: #00e58a;
+
+    margin-bottom: 12px;
+}
+
+.seguridad-card p {
+    color: #bdcbd1;
+}
+
+
+/* ===== VENTAJAS ===== */
+
+.ventajas {
+    background: #090910;
+}
+
+.ventajas-lista {
+    max-width: 900px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.ventaja {
+    padding: 20px;
+
+    background: #13131e;
+
+    border-radius: 8px;
+
+    border-left: 4px solid #00e5ff;
+}
+
+.ventaja h3 {
+    color: #00e5ff;
+
+    margin-bottom: 6px;
+}
+
+.ventaja p {
+    color: #b9c3cc;
+}
+
+
+/* ===== APRENDER ===== */
+
+.aprender {
+    background:
+        radial-gradient(
+            circle at center,
+            #173c4a,
+            #090910 65%
+        );
+
+    text-align: center;
+}
+
+.aprender-contenido {
+    max-width: 850px;
+
+    margin: auto;
+}
+
+.aprender-contenido p {
+    color: #d1dbe1;
+
+    font-size: 19px;
+}
+
+
+/* ===== CURIOSIDADES ===== */
+
+.curiosidades {
+    background: #101019;
+}
+
+.curiosidades-grid {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.curiosidad {
+    padding: 25px;
+
+    background: #161620;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+.curiosidad-icono {
+    font-size: 40px;
+
+    margin-bottom: 10px;
+}
+
+.curiosidad h3 {
+    color: #ff7043;
+
+    margin-bottom: 8px;
+}
+
+.curiosidad p {
+    color: #b9c3cc;
+}
+
+
+/* ===== CONCLUSIÓN ===== */
+
+.conclusion {
+    background: #090910;
+
+    text-align: center;
+}
+
+.conclusion-contenido {
+    max-width: 850px;
+
+    margin: auto;
+}
+
+.conclusion p {
+    color: #d0d9df;
+
+    font-size: 19px;
+
+    line-height: 1.9;
+}
+
+
+/* ===== FOOTER ===== */
+
+footer {
+    background: #050509;
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: #7f8b95;
+}
+
+footer strong {
+    color: #00e5ff;
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+
+    .html-contenido,
+    .js-contenido {
+        grid-template-columns: 1fr;
+    }
+
+    .tecnologia {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tecnologias-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .seguridad-contenido {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .portada h1 {
+        font-size: 48px;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .tecnologia,
+    .tecnologias-grid,
+    .seguridad-contenido,
+    .ventajas-lista,
+    .curiosidades-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portada h1 {
+        font-size: 35px;
+    }
+
+    .portada h2 {
+        font-size: 20px;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
 <body>
-    <h1>¡Mi página de One Piece!</h1>
-    <p>Bienvenidos a mi aventura.</p>
+
+
+<!-- ===== PORTADA ===== -->
+
+<header class="portada">
+
+    <div class="codigo-fondo">
+
+        &lt;html&gt; &lt;body&gt; &lt;div&gt; &lt;/div&gt;
+        &lt;style&gt; &lt;script&gt;
+        &lt;header&gt; &lt;section&gt;
+
+    </div>
+
+
+    <div class="portada-contenido">
+
+        <div class="simbolo-html">
+            &lt;/&gt;
+        </div>
+
+        <h1>
+            TECNOLOGÍAS <span>WEB</span>
+        </h1>
+
+        <h2>
+            HTML, CSS, JavaScript y mucho más
+        </h2>
+
+        <p>
+            Descubre las principales tecnologías utilizadas
+            para crear páginas web, aplicaciones y experiencias
+            digitales.
+        </p>
+
+        <a href="#html" class="boton">
+            💻 Comenzar
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- ===== MENÚ ===== -->
+
+<nav>
+
+    <a href="#html">HTML</a>
+
+    <a href="#estructura">Estructura</a>
+
+    <a href="#css">CSS</a>
+
+    <a href="#javascript">JavaScript</a>
+
+    <a href="#tecnologias">Tecnologías</a>
+
+    <a href="#etiquetas">Etiquetas</a>
+
+    <a href="#responsive">Responsive</a>
+
+    <a href="#seguridad">Seguridad</a>
+
+    <a href="#aprender">Aprender</a>
+
+</nav>
+
+
+<!-- ===== HTML ===== -->
+
+<section class="html-seccion" id="html">
+
+    <h2 class="titulo">
+        🌐 ¿Qué es HTML?
+    </h2>
+
+
+    <div class="html-contenido">
+
+
+        <div class="texto">
+
+            <h3>
+                HyperText Markup Language
+            </h3>
+
+            <p>
+                HTML es un lenguaje de marcado utilizado para
+                crear y organizar el contenido de las páginas web.
+                Permite estructurar textos, títulos, imágenes,
+                enlaces, listas, formularios y otros elementos.
+            </p>
+
+            <br>
+
+            <p>
+                HTML funciona mediante etiquetas que indican al
+                navegador qué tipo de contenido debe mostrar.
+            </p>
+
+        </div>
+
+
+        <div class="editor">
+
+            <div class="editor-barra">
+                📄 index.html
+            </div>
+
+            <div class="editor-codigo">
+
+                <span class="tag">&lt;h1&gt;</span>
+                Mi página web
+                <span class="tag">&lt;/h1&gt;</span>
+
+                <br>
+
+                <span class="tag">&lt;p&gt;</span>
+                Bienvenidos
+                <span class="tag">&lt;/p&gt;</span>
+
+                <br>
+
+                <span class="tag">&lt;a</span>
+                <span class="atributo"> href</span>=
+                <span class="valor">"#"</span>
+                <span class="tag">&gt;</span>
+
+                Enlace
+
+                <span class="tag">&lt;/a&gt;</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== ESTRUCTURA ===== -->
+
+<section class="estructura" id="estructura">
+
+    <h2 class="titulo">
+        🏗️ Estructura básica de HTML
+    </h2>
+
+
+    <div class="estructura-contenido">
+
+        <div class="linea rojo">
+            &lt;!DOCTYPE html&gt;
+        </div>
+
+        <div class="linea rojo">
+            &lt;html&gt;
+        </div>
+
+        <div class="linea azul">
+            &nbsp;&nbsp;&lt;head&gt;
+        </div>
+
+        <div class="linea verde">
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Mi página&lt;/title&gt;
+        </div>
+
+        <div class="linea azul">
+            &nbsp;&nbsp;&lt;/head&gt;
+        </div>
+
+        <div class="linea azul">
+            &nbsp;&nbsp;&lt;body&gt;
+        </div>
+
+        <div class="linea morado">
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Hola mundo&lt;/h1&gt;
+        </div>
+
+        <div class="linea morado">
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Mi primera página&lt;/p&gt;
+        </div>
+
+        <div class="linea azul">
+            &nbsp;&nbsp;&lt;/body&gt;
+        </div>
+
+        <div class="linea rojo">
+            &lt;/html&gt;
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== CSS ===== -->
+
+<section class="css-seccion" id="css">
+
+    <h2 class="titulo">
+        🎨 ¿Qué es CSS?
+    </h2>
+
+
+    <div class="tecnologia">
+
+
+        <div class="card">
+
+            <div class="icono">🎨</div>
+
+            <h3>Diseño</h3>
+
+            <p>
+                CSS permite cambiar colores, tamaños, fuentes
+                y otros aspectos visuales de una página.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icono">📐</div>
+
+            <h3>Distribución</h3>
+
+            <p>
+                Permite organizar los elementos de una página
+                y crear diferentes diseños.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icono">✨</div>
+
+            <h3>Animaciones</h3>
+
+            <p>
+                CSS también puede crear transiciones y
+                diferentes efectos visuales.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== JAVASCRIPT ===== -->
+
+<section class="javascript" id="javascript">
+
+    <h2 class="titulo">
+        ⚙️ ¿Qué es JavaScript?
+    </h2>
+
+
+    <div class="js-contenido">
+
+
+        <div class="js-card">
+
+            <h3>💡 Interactividad</h3>
+
+            <p>
+                JavaScript es un lenguaje de programación que
+                permite agregar comportamiento e interacción
+                a las páginas web.
+            </p>
+
+        </div>
+
+
+        <div class="js-card">
+
+            <h3>🖱️ Acciones</h3>
+
+            <p>
+                Puede utilizarse para responder a acciones
+                del usuario, como hacer clic en botones,
+                completar formularios o interactuar con
+                diferentes elementos.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== TECNOLOGÍAS ===== -->
+
+<section class="tecnologias-web" id="tecnologias">
+
+    <h2 class="titulo">
+        🧩 Tecnologías utilizadas en la web
+    </h2>
+
+
+    <div class="tecnologias-grid">
+
+
+        <div class="tech">
+
+            <div class="tech-icono">🌐</div>
+
+            <h3>HTML</h3>
+
+            <p>
+                Organiza la estructura y el contenido.
+            </p>
+
+        </div>
+
+
+        <div class="tech">
+
+            <div class="tech-icono">🎨</div>
+
+            <h3>CSS</h3>
+
+            <p>
+                Se utiliza para el diseño y presentación.
+            </p>
+
+        </div>
+
+
+        <div class="tech">
+
+            <div class="tech-icono">⚡</div>
+
+            <h3>JavaScript</h3>
+
+            <p>
+                Agrega interacción y comportamiento.
+            </p>
+
+        </div>
+
+
+        <div class="tech">
+
+            <div class="tech-icono">🗄️</div>
+
+            <h3>Bases de datos</h3>
+
+            <p>
+                Permiten almacenar y organizar información.
+            </p>
+
+        </div>
+
+
+        <div class="tech">
+
+            <div class="tech-icono">🖥️</div>
+
+            <h3>Servidores</h3>
+
+            <p>
+                Procesan solicitudes y proporcionan recursos.
+            </p>
+
+        </div>
+
+
+        <div class="tech">
+
+            <div class="tech-icono">☁️</div>
+
+            <h3>La nube</h3>
+
+            <p>
+                Permite utilizar servicios y almacenar
+                información mediante Internet.
+            </p>
+
+        </div>
+
+
+        <div class="tech">
+
+            <div class="tech-icono">📱</div>
+
+            <h3>Responsive</h3>
+
+            <p>
+                Permite adaptar las páginas a diferentes
+                tamaños de pantalla.
+            </p>
+
+        </div>
+
+
+        <div class="tech">
+
+            <div class="tech-icono">🔐</div>
+
+            <h3>Seguridad</h3>
+
+            <p>
+                Ayuda a proteger páginas, cuentas y datos.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== ETIQUETAS ===== -->
+
+<section class="etiquetas" id="etiquetas">
+
+    <h2 class="titulo">
+        🧱 Etiquetas HTML importantes
+    </h2>
+
+
+    <div class="etiquetas-contenido">
+
+
+        <div class="etiqueta">
+            <strong>&lt;h1&gt;</strong>
+            Título
+        </div>
+
+
+        <div class="etiqueta">
+            <strong>&lt;p&gt;</strong>
+            Párrafo
+        </div>
+
+
+        <div class="etiqueta">
+            <strong>&lt;a&gt;</strong>
+            Enlace
+        </div>
+
+
+        <div class="etiqueta">
+            <strong>&lt;img&gt;</strong>
+            Imagen
+        </div>
+
+
+        <div class="etiqueta">
+            <strong>&lt;ul&gt;</strong>
+            Lista
+        </div>
+
+
+        <div class="etiqueta">
+            <strong>&lt;li&gt;</strong>
+            Elemento
+        </div>
+
+
+        <div class="etiqueta">
+            <strong>&lt;table&gt;</strong>
+            Tabla
+        </div>
+
+
+        <div class="etiqueta">
+            <strong>&lt;form&gt;</strong>
+            Formulario
+        </div>
+
+
+        <div class="etiqueta">
+            <strong>&lt;button&gt;</strong>
+            Botón
+        </div>
+
+
+        <div class="etiqueta">
+            <strong>&lt;section&gt;</strong>
+            Sección
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== RESPONSIVE ===== -->
+
+<section class="responsive" id="responsive">
+
+    <h2 class="titulo">
+        📱 Diseño adaptable
+    </h2>
+
+
+    <div class="responsive-contenido">
+
+
+        <div class="dispositivo pc">
+            🖥️
+        </div>
+
+
+        <div class="dispositivo tablet">
+            📱
+        </div>
+
+
+        <div class="dispositivo celular">
+            📲
+        </div>
+
+    </div>
+
+
+    <br><br>
+
+
+    <div style="max-width:850px; margin:auto; text-align:center;">
+
+        <p style="color:#c8d4db; font-size:18px;">
+
+            Un sitio web adaptable puede cambiar su distribución
+            para verse correctamente en computadoras, tablets
+            y teléfonos celulares.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ===== SEGURIDAD ===== -->
+
+<section class="seguridad" id="seguridad">
+
+    <h2 class="titulo">
+        🔐 Seguridad en páginas web
+    </h2>
+
+
+    <div class="seguridad-contenido">
+
+
+        <div class="seguridad-card">
+
+            <h3>🔒 HTTPS</h3>
+
+            <p>
+                Ayuda a proteger la comunicación entre el
+                navegador y un sitio web.
+            </p>
+
+        </div>
+
+
+        <div class="seguridad-card">
+
+            <h3>🔑 Contraseñas</h3>
+
+            <p>
+                Las cuentas deben utilizar buenas prácticas
+                de autenticación y protección.
+            </p>
+
+        </div>
+
+
+        <div class="seguridad-card">
+
+            <h3>🛡️ Actualizaciones</h3>
+
+            <p>
+                Mantener los programas y sistemas actualizados
+                ayuda a reducir riesgos de seguridad.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== VENTAJAS ===== -->
+
+<section class="ventajas">
+
+    <h2 class="titulo">
+        🚀 ¿Por qué aprender HTML?
+    </h2>
+
+
+    <div class="ventajas-lista">
+
+
+        <div class="ventaja">
+
+            <h3>💻 Crear páginas</h3>
+
+            <p>
+                HTML permite construir la estructura básica
+                de un sitio web.
+            </p>
+
+        </div>
+
+
+        <div class="ventaja">
+
+            <h3>🎨 Combinar tecnologías</h3>
+
+            <p>
+                Puede utilizarse junto con CSS y JavaScript
+                para crear sitios más completos.
+            </p>
+
+        </div>
+
+
+        <div class="ventaja">
+
+            <h3>🧠 Desarrollar habilidades</h3>
+
+            <p>
+                Aprender HTML ayuda a comprender cómo funciona
+                gran parte de la web.
+            </p>
+
+        </div>
+
+
+        <div class="ventaja">
+
+            <h3>🌐 Crear proyectos</h3>
+
+            <p>
+                Permite desarrollar páginas personales,
+                escolares y otros proyectos digitales.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== APRENDER ===== -->
+
+<section class="aprender" id="aprender">
+
+    <h2 class="titulo">
+        📚 Aprender tecnologías web
+    </h2>
+
+
+    <div class="aprender-contenido">
+
+        <p>
+            Aprender tecnologías web puede comenzar con conceptos
+            sencillos. HTML permite crear la estructura, CSS ayuda
+            con el diseño y JavaScript permite agregar interacción.
+        </p>
+
+        <br>
+
+        <p>
+            Con práctica se pueden crear proyectos cada vez más
+            completos y aprender nuevas herramientas relacionadas
+            con el desarrollo web.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ===== CURIOSIDADES ===== -->
+
+<section class="curiosidades">
+
+    <h2 class="titulo">
+        💡 Curiosidades sobre la web
+    </h2>
+
+
+    <div class="curiosidades-grid">
+
+
+        <div class="curiosidad">
+
+            <div class="curiosidad-icono">🌐</div>
+
+            <h3>HTML</h3>
+
+            <p>
+                Es una de las tecnologías fundamentales
+                utilizadas para construir páginas web.
+            </p>
+
+        </div>
+
+
+        <div class="curiosidad">
+
+            <div class="curiosidad-icono">🎨</div>
+
+            <h3>CSS</h3>
+
+            <p>
+                Permite modificar la apariencia de los
+                elementos de una página.
+            </p>
+
+        </div>
+
+
+        <div class="curiosidad">
+
+            <div class="curiosidad-icono">⚙️</div>
+
+            <h3>JavaScript</h3>
+
+            <p>
+                Puede hacer que una página responda a
+                diferentes acciones del usuario.
+            </p>
+
+        </div>
+
+
+        <div class="curiosidad">
+
+            <div class="curiosidad-icono">📱</div>
+
+            <h3>Web móvil</h3>
+
+            <p>
+                Actualmente muchas páginas se diseñan para
+                funcionar en dispositivos móviles.
+            </p>
+
+        </div>
+
+
+        <div class="curiosidad">
+
+            <div class="curiosidad-icono">💻</div>
+
+            <h3>Código</h3>
+
+            <p>
+                Los desarrolladores utilizan código para
+                construir y modificar sitios web.
+            </p>
+
+        </div>
+
+
+        <div class="curiosidad">
+
+            <div class="curiosidad-icono">🚀</div>
+
+            <h3>Proyectos</h3>
+
+            <p>
+                Con HTML, CSS y JavaScript se pueden crear
+                muchos tipos de proyectos web.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== CONCLUSIÓN ===== -->
+
+<section class="conclusion">
+
+    <h2 class="titulo">
+        🌟 Conclusión
+    </h2>
+
+
+    <div class="conclusion-contenido">
+
+        <p>
+            Las tecnologías web son fundamentales para crear
+            páginas y aplicaciones que utilizamos diariamente.
+            HTML organiza el contenido, CSS se encarga del
+            diseño y JavaScript permite agregar interactividad.
+        </p>
+
+        <br>
+
+        <p>
+            Conocer estas tecnologías permite comprender mejor
+            cómo funciona Internet y desarrollar nuestros
+            propios proyectos digitales.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+
+<footer>
+
+    <p>
+        💻 Página educativa sobre
+        <strong>Tecnologías Web</strong>
+    </p>
+
+</footer>
+
+
 </body>
+
 </html>
